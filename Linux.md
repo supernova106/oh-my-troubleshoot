@@ -1,25 +1,50 @@
 # Linux
 
+## Table of Contents
+
+- [System Info](#System-Info)
+- [Hardware Info](#Hardware-Info)
+
+## <a name="System-Info"></a>System Info
+
+- Display Linux system information: `uname -a`
+- Display kernel release information: `uname -r`
+- Show which version of redhat installed: `cat /etc/redhat-release`
+- Show how long the system has been running + load: `uptime`
+- Show system host name: `hostname`
+- Display the IP addresses of the host: `hostname -I`
+- Show system reboot history: `last reboot`
+- Show the current date and time: `date`
+- Show this month's calendar: `cal`
+- Display who is online: `w`
+- Who you are logged in as: `whoami`
+- Show free and used inodes on mounted filesystems `df -i`
+- Display disks partitions sizes and types `fdisk -l`
+- Display disk usage for all files and directories in human readable format `du -ah`
+- Display total disk usage off the current directory `du -sh`
+
+## <a name="Hardware-Info"></a>Hardware Info
+
+- Display messages in kernel ring buffer: `dmesg`
+- Display CPU information: `cat /proc/cpuinfo`
+- Display memory information: `cat /proc/meminfo`
+- Display free and used memory ( -h for human readable, -m for MB, -g for GB.): `free -h`
+- Display PCI devices: `lspci -tv`
+- Display USB devices: `lsusb -tv`
+- Display DMI/SMBIOS (hardware info) from the BIOS: `dmidecode`
+- Show info about disk sda: `hdparm -i /dev/sda`
+- Perform a read speed test on disk sda: `hdparm -tT /dev/sda`
+- Test for unreadable blocks on disk sda: `badblocks -s /dev/sda`
+
 ## Utilities
 
-- search
+Search
 
-```sh
-# Search for pattern in file
-grep pattern file
-
-# Search recursively for pattern in directory
-grep -r pattern directory
-
-# Find files and directories by name
-locate name
-
-# Find files in /home/john that start with "prefix".
-find /home/john -name 'prefix*'
-
-# Find files larger than 100MB in /home
-find /home -size +100M
-```
+- Search for pattern in file `grep pattern file`
+- Search recursively for pattern in directory `grep -r pattern directory`
+- Find files and directories by name `locate name`
+- Find files in /home/john that start with "prefix". `find /home/john -name 'prefix*'`
+- Find files larger than 100MB in /home `find /home -size +100M`
 
 - Find top disk usage dir/files
 
@@ -35,11 +60,7 @@ du -hs  * | sort -nr | head -5
 # -n : Print the first ‘n’ lines. (In our case, We displayed first 5 lines).
 ```
 
-- Remove files older than 14 days
-
-```sh
-sudo find . -type f -mtime +14 -exec rm -r {} \;
-```
+- Remove files older than 14 days `find . -type f -mtime +14 -exec rm -r {} \;`
 
 ### File transfer
 
@@ -89,48 +110,6 @@ lsof
 lsof -i tcp
 lsof -i udp
 ```
-
-## Sys Info
-
-- Display Linux system information: `uname -a`
-- Display kernel release information: `uname -r`
-- Show which version of redhat installed: `cat /etc/redhat-release`
-- Show how long the system has been running + load: `uptime`
-- Show system host name: `hostname`
-- Display the IP addresses of the host: `hostname -I`
-- Show system reboot history: `last reboot`
-- Show the current date and time: `date`
-- Show this month's calendar: `cal`
-- Display who is online: `w`
-- Who you are logged in as: `whoami`
-- Disk
-
-```sh
-# Show free and used inodes on mounted filesystems
-df -i
-
-# Display disks partitions sizes and types
-fdisk -l
-
-# Display disk usage for all files and directories in human readable format
-du -ah
-
-# Display total disk usage off the current directory
-du -sh
-```
-
-## Hardware Info
-
-- Display messages in kernel ring buffer: `dmesg`
-- Display CPU information: `cat /proc/cpuinfo`
-- Display memory information: `cat /proc/meminfo`
-- Display free and used memory ( -h for human readable, -m for MB, -g for GB.): `free -h`
-- Display PCI devices: `lspci -tv`
-- Display USB devices: `lsusb -tv`
-- Display DMI/SMBIOS (hardware info) from the BIOS: `dmidecode`
-- Show info about disk sda: `hdparm -i /dev/sda`
-- Perform a read speed test on disk sda: `hdparm -tT /dev/sda`
-- Test for unreadable blocks on disk sda: `badblocks -s /dev/sda`
 
 ## Utilization
 
