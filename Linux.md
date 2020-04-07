@@ -41,6 +41,55 @@ du -hs  * | sort -nr | head -5
 sudo find . -type f -mtime +14 -exec rm -r {} \;
 ```
 
+### File transfer
+
+```sh
+# Secure copy file.txt to the /tmp folder on server
+scp file.txt server:/tmp
+
+# Copy *.html files from server to the local /tmp folder.
+scp server:/var/www/*.html /tmp
+
+# Copy all files and directories recursively from server to the current system's /tmp folder.
+scp -r server:/var/www /tmp
+
+# Synchronize /home to /backups/home
+rsync -a /home /backups/
+
+# Synchronize files/directories between the local and remote system with compression enabled
+rsync -avz /home server:/backups/
+```
+
+### Tracing
+
+strace
+
+- Trace execution of command `strace`. Example: `strace ls`
+- Trace only when certain/specific system calls are made: `strace -e trace=open,read who`
+- Save a trace to a file `strace -o output.txt who`
+- Watch a running process with PID=1363 `strace -p 1363`
+- Print a timestamp for each output line of the trace: `strace -t who`
+- Print relative time for system calls: `strace -r who`
+- Generate batch statistics reports of system calls `strace -c who`
+
+lsof
+
+- List processes that have opened the specific file /var/log/syslog: `lsof /var/log/syslog`
+- List processes that have opened files under the directory /var/log `lsof +d /var/log`
+- List files opened by processes named "sshd": `lsof -c sshd`
+- List files opened by a specific user named "foo": `lsof -u foo`
+- List files opened by everyone except for the user named "foo" `lsof -u ^foo`
+- List all open files for a specific process with PID=1081 `lsof -p 1081`
+- List all network connections `lsof -i`
+- List network connections in use by a specific process with PID=1014 `lsof -i -a -p 1014`
+- List processes that are listening on port 22: `lsof -i :22`
+- List all TCP or UDP connections
+
+```sh
+lsof -i tcp
+lsof -i udp
+```
+
 ## Sys Info
 
 - Display Linux system information: `uname -a`
@@ -54,6 +103,21 @@ sudo find . -type f -mtime +14 -exec rm -r {} \;
 - Show this month's calendar: `cal`
 - Display who is online: `w`
 - Who you are logged in as: `whoami`
+- Disk
+
+```sh
+# Show free and used inodes on mounted filesystems
+df -i
+
+# Display disks partitions sizes and types
+fdisk -l
+
+# Display disk usage for all files and directories in human readable format
+du -ah
+
+# Display total disk usage off the current directory
+du -sh
+```
 
 ## Hardware Info
 
@@ -68,15 +132,10 @@ sudo find . -type f -mtime +14 -exec rm -r {} \;
 - Perform a read speed test on disk sda: `hdparm -tT /dev/sda`
 - Test for unreadable blocks on disk sda: `badblocks -s /dev/sda`
 
-## Performance
+## Utilization
 
 - Display processor related statistics: `mpstat 1`
 - Display virtual memory statistics: `vmstat 1`
-- Display the last 100 syslog messages (Use /var/log/syslog for Debian based systems.): `tail 100 /var/log/messages`
-- Capture and display all packets on interface eth0: `tcpdump -i eth0`
-- Monitor all traffic on port 80 ( HTTP ): `tcpdump -i eth0 'port 80'`
-- List all open files on the system: `lsof`
-- List files opened by user `lsof -u user`
 - Display free and used memory ( -h for human readable, -m for MB, -g for GB.): `free -h`
 - top
 
@@ -228,3 +287,30 @@ wget http://domain.com/file
 # Display listening tcp and udp ports and corresponding programs
 netstat -nutlp
 ```
+
+tcpdump
+
+- Capture and display all packets on interface eth0: `tcpdump -i eth0`
+- Monitor all traffic on port 80 ( HTTP ): `tcpdump -i eth0 'port 80'`
+- Capture only 100 packets `tcpdump -c 100`
+- Display captured packets in ASCII `tcpdump -A`
+- Capture packet data, writing it into into a file `tcpdump -w saved.pcap`
+- Read back saved packet data from a file `tcpdump -r saved.pcap`
+- Capture only packets longer/smaller than 1024 bytes `tcpdump greater 1024`
+- Capture only UDP or TCP packets `tcpdump tcp`
+- Capture only packets going to/from a particular port `tcpdump port 22`
+- Capture packets for a particular destination IP and port `tcpdump dst 54.165.81.189 and port 6666`
+
+iftop
+
+- Observe traffic for just the eth0 interface `iftop -i eth0`
+- Filter to show only traffic going to/from IP address 54.84.222.1 `iftop -f "host 54.84.222.1"`
+
+## Performance Tuning
+
+There are two basic performance analysis methodologies you can use for most performance issues.
+
+- The first is the resource-oriented USE Method, which provides a checklist for identifying common bottlenecks and errors.
+- The second is the thread-oriented TSA Method, for identifying issues causing poor thread performance.
+
+- [Read](http://www.brendangregg.com/index.html)
