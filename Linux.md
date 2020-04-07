@@ -4,6 +4,14 @@
 
 - [System Info](#System-Info)
 - [Hardware Info](#Hardware-Info)
+- [Utilities](#Utilities)
+- [File transfer](#File-transfer)
+- [Tracing](#Tracing)
+- [Utilization](#Utilization)
+- [Users](#Users)
+- [Process](#Process)
+- [Networking](#Networking)
+- [Performance Tuning](#Performance-Tuning)
 
 ## <a name="System-Info"></a>System Info
 
@@ -36,7 +44,7 @@
 - Perform a read speed test on disk sda: `hdparm -tT /dev/sda`
 - Test for unreadable blocks on disk sda: `badblocks -s /dev/sda`
 
-## Utilities
+## <a name="Utilities"></a>Utilities
 
 Search
 
@@ -62,7 +70,7 @@ du -hs  * | sort -nr | head -5
 
 - Remove files older than 14 days `find . -type f -mtime +14 -exec rm -r {} \;`
 
-### File transfer
+### <a name="File-transfer"></a>File transfer
 
 ```sh
 # Secure copy file.txt to the /tmp folder on server
@@ -81,7 +89,7 @@ rsync -a /home /backups/
 rsync -avz /home server:/backups/
 ```
 
-### Tracing
+### <a name="Tracing">Tracing
 
 strace
 
@@ -111,7 +119,7 @@ lsof -i tcp
 lsof -i udp
 ```
 
-## Utilization
+## <a name="Utilization">Utilization
 
 - Display processor related statistics: `mpstat 1`
 - Display virtual memory statistics: `vmstat 1`
@@ -177,7 +185,7 @@ do
 done < "${input}"
 ```
 
-## Users
+## <a name="Users">Users
 
 ```sh
 # Display the user and group ids of your current user.
@@ -205,7 +213,7 @@ userdel john
 usermod -aG sales john
 ```
 
-## Process
+## <a name="Process">Process
 
 ```sh
 # Kill process with process ID of pid
@@ -227,7 +235,7 @@ fg
 fg n
 ```
 
-## Networking
+## <a name="Networking">Networking
 
 ```sh
 # Display all network interfaces and ip address
@@ -285,7 +293,7 @@ iftop
 - Observe traffic for just the eth0 interface `iftop -i eth0`
 - Filter to show only traffic going to/from IP address 54.84.222.1 `iftop -f "host 54.84.222.1"`
 
-## Performance Tuning
+## <a name="Performance-Tuning">Performance Tuning
 
 There are two basic performance analysis methodologies you can use for most performance issues.
 
