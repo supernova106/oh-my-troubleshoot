@@ -55,6 +55,14 @@ kubectl get --raw=/healthz/etcd
 kubectl get pods --sort-by="{.status.containerStatuses[:1].restartCount}"
 ```
 
+- find role associated to a service account
+
+```sh
+kubectl get rolebindings,clusterrolebindings \
+  --all-namespaces  \
+  -o custom-columns='KIND:kind,NAMESPACE:metadata.namespace,NAME:metadata.name,SERVICE_ACCOUNTS:subjects[?(@.kind=="ServiceAccount")].name' | grep "<SERVICE_ACCOUNT_NAME>"
+```
+
 ## Nginx Ingress Controller
 
 - [Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/troubleshooting/)
