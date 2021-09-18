@@ -58,6 +58,7 @@ Search
 
 ```sh
 du -hs  * | sort -nr | head -5
+du -sh /<path>/*
 
 # du command: Estimate file space usage.
 # a : Displays all files and folders.
@@ -66,6 +67,19 @@ du -hs  * | sort -nr | head -5
 # -r : Reverse the result of comparisons.
 # head : Output the first part of files.
 # -n : Print the first ‘n’ lines. (In our case, We displayed first 5 lines).
+```
+
+Chrony
+
+```sh
+chronyc tracking
+chronyc sources -v
+```
+
+Truncate
+
+```sh
+truncate -s 0 <file_path>
 ```
 
 - Remove files older than 14 days `find . -type f -mtime +14 -exec rm -r {} \;`
