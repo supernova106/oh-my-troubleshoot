@@ -12,4 +12,3 @@ CLI Tools
 - https://github.com/derailed/k9s
 - https://github.com/aylei/kubectl-debug
 - https://github.com/ahmetb/kubectl-tree
-- 
