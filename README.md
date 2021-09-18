@@ -8,3 +8,5 @@ Linux, Devops Troubleshooting Jump Start
 - [GCP](./GCP.md)
 - [Jenkins](./Jenkins.md)
 - [JVM](./JVM.md)
+- [EKS](./EKS.md)
+- [Kafka](./Kafka.md)
