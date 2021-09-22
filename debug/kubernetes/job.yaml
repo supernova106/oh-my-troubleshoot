@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello
+spec:
+  template:
+    # This is the pod template
+    spec:
+      # serviceAccountName: default
+      containers:
+      - name: hello
+        # can replace with nicolaka/netshoot (https://github.com/nicolaka/netshoot)
+        # https://github.com/bitnami/bitnami-docker-aws-cli
+        image: bitnami/aws-cli:latest
+        command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
+      restartPolicy: OnFailure
+    # The pod template ends here
