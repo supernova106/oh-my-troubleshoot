@@ -2,6 +2,14 @@
 
 ## Kubectl
 
+- Get pods by custom columns: NAME and IP
+
+```sh
+kubectl get pod -o=custom-columns=NAME:.metadata.name,IP:.status.podIP
+```
+
+- Get events with sorted timestamp
+
 ```sh
 kubectl get events --sort-by='.lastTimestamp'
 ```
