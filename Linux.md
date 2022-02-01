@@ -1,5 +1,34 @@
 # Linux
 
+Quick troubleshooting
+
+```sh
+# The three numbers are exponentially damped moving sum averages with a 1 minute, 5 minute, and 15 minute constant
+uptime
+
+dmesg | tail
+vmstat 1
+
+# This command prints CPU time breakdowns per CPU, which can be used to check for an imbalance. 
+# A single hot CPU can be evidence of a single-threaded application.
+mpstat -P ALL 1
+
+pidstat 1
+
+# block devices (disks), both the workload applied and the resulting performance
+iostat -xz 1
+free -m
+
+# check network interface throughput: rxkB/s and txkB/s, as a measure of workload, and also to check if any limit has been reached
+sar -n DEV 1
+
+# active/s: Number of locally-initiated TCP connections per second (e.g., via connect()).
+# passive/s: Number of remotely-initiated TCP connections per second (e.g., via accept()).
+# retrans/s: Number of TCP retransmits per second.
+sar -n TCP,ETCP 1
+top
+```
+
 ## Table of Contents
 
 - [System Info](#System-Info)
