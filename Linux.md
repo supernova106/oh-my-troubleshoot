@@ -322,6 +322,12 @@ tcpdump
 
 - Capture and display all packets on interface eth0: `tcpdump -i eth0`
 - Monitor all traffic on port 80 ( HTTP ): `tcpdump -i eth0 'port 80'`
+- Capture packets on port 443
+
+```sh
+tcpdump -nnSX port 443 -w data.pcap
+```
+  
 - Capture only 100 packets `tcpdump -c 100`
 - Display captured packets in ASCII `tcpdump -A`
 - Capture packet data, writing it into into a file `tcpdump -w saved.pcap`
@@ -330,6 +336,15 @@ tcpdump
 - Capture only UDP or TCP packets `tcpdump tcp`
 - Capture only packets going to/from a particular port `tcpdump port 22`
 - Capture packets for a particular destination IP and port `tcpdump dst 54.165.81.189 and port 6666`
+  
+mtr
+  
+- an essential, real-time network diagnostic tool for your sysadmin toolbox
+- IPv4
+  
+```sh
+mtr -4b google.com
+```
 
 iftop
 
