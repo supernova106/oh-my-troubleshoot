@@ -13,3 +13,11 @@
 ```ps
 ls <dir_path>
 ```
+
+3. Test connectivity
+
+```ps
+Test-NetConnection ssm.RegionID.amazonaws.com -port 443
+Test-NetConnection ec2messages.RegionID.amazonaws.com -port 443
+Test-NetConnection ssmmessages.RegionID.amazonaws.com -port 443
+```
