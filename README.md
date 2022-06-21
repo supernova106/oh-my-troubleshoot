@@ -10,3 +10,6 @@ Linux, Devops Troubleshooting Jump Start
 - [JVM](./JVM.md)
 - [EKS](./EKS.md)
 - [Kafka](./Kafka.md)
+- [SSL](./SSL.md)
+- [JQ](./jq.md)
+- [Elastic](./elastic.md)
