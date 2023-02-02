@@ -2,6 +2,12 @@
 
 ## Kubectl
 
+- Get taint nodes
+
+```sh
+kubectl get nodes -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints --no-headers
+```
+
 - Get pods by custom columns: NAME and IP
 
 ```sh
