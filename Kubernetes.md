@@ -2,6 +2,19 @@
 
 ## Kubectl
 
+- Check current user permission with Kubernetes API
+
+```sh
+kubectl auth can-i create deployments --namespace dev
+```
+
+- Test pod permission with Kubernetes API
+
+```sh
+TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+curl -k https://${NODE_NAME}:10250/metrics/resource --header "Authorization: Bearer $TOKEN"
+```
+
 - Get taint nodes
 
 ```sh
