@@ -1,5 +1,13 @@
 # Windows
 
+## Service
+
+1. Delete a service
+
+```ps
+sc.exe delete <service_name>
+```
+
 ## ENV
 
 1. Set or print an environment variable
