@@ -29,3 +29,17 @@ GET /_cluster/allocation/explain
 ```sh
 GET <INDEX>?features=settings&flat_settings
 ```
+
+6. Set max scroll
+
+```sh
+PUT _cluster/settings
+{
+    "persistent" : {
+        "search.max_open_scroll_context": 2048
+    },
+    "transient": {
+        "search.max_open_scroll_context": 2048
+    }
+}
+```
