@@ -12,4 +12,5 @@ Linux, Devops Troubleshooting Jump Start
 - [Kafka](./Kafka.md)
 - [SSL](./SSL.md)
 - [JQ](./jq.md)
-- [Elastic](./elastic.md)
+- [PostgreSQL](./PostgreSQL.md)
+- [Windows](./Windows.md)
