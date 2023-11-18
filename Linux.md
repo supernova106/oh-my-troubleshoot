@@ -41,6 +41,7 @@ top
 - [Process](#Process)
 - [Networking](#Networking)
 - [Performance Tuning](#Performance-Tuning)
+- [Time](#Time)
 
 ## <a name="System-Info"></a>System Info
 
@@ -359,3 +360,17 @@ There are two basic performance analysis methodologies you can use for most perf
 - The second is the thread-oriented TSA Method, for identifying issues causing poor thread performance.
 
 - [Read](http://www.brendangregg.com/index.html)
+
+## <a name="Time">Time
+
+- Show a time on a Linux
+
+```sh
+timedatectl 
+```
+
+- Resync time on a Linux using Chronyd
+
+```sh
+chrony -a makestep
+```
