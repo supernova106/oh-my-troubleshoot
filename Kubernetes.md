@@ -5,16 +5,12 @@
 - Remove a "stucked" namespace
 
 ```sh
-NAMESPACE=${1}
-
-if [ -z "${NAMESPACE}" ]; then
-  echo "NAMESPACE is undefined"
-  exit 1
-fi
-
-# kubectl get namespace ${NAMESPACE} -o json >tmp.json
-# remove finalizers under spec in tmp.json
-# curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json http://127.0.0.1:8001/api/v1/namespaces/${NAMESPACE}/finalize
+(
+NAMESPACE=your-namespace
+kubectl proxy &
+kubectl get namespace $NAMESPACE -o json |jq '.spec = {"finalizers":[]}' >temp.json
+curl -k -H "Content-Type: application/json" -X PUT --data-binary @temp.json 127.0.0.1:8001/api/v1/namespaces/$NAMESPACE/finalize
+)
 ```
 
 - Check current user permission with Kubernetes API
