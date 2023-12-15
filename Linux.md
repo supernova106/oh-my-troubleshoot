@@ -42,6 +42,7 @@ top
 - [Networking](#Networking)
 - [Performance Tuning](#Performance-Tuning)
 - [Time](#Time)
+- [Others](#Others)
 
 ## <a name="System-Info"></a>System Info
 
@@ -373,4 +374,12 @@ timedatectl
 
 ```sh
 chrony -a makestep
+```
+
+## <a name="Others">Others
+
+- Cleanup files older than 7 days
+
+```sh
+find /path/  -type f -mtime +1 -name '*.gz' -print0 | xargs -r0 rm --
 ```
