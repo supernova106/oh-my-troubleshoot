@@ -159,10 +159,10 @@ def main(es_client, src_indices):
 
 if __name__ == "__main__":
     load_dotenv('.env')
-    kibana_url = os.environ['ES_URL']
+    es_url = os.environ['ES_URL']
     es_password = os.environ['ES_PASSWORD']
     es_user = os.environ['ES_USER']
-    es = Elasticsearch(hosts=kibana_url)
+    es = Elasticsearch(hosts=es_url)
     es_client = es.options(basic_auth=(es_user, es_password))
     es_client.info()
     
