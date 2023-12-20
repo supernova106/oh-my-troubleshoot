@@ -1,6 +1,18 @@
 # Elasticsearch
 
+Reads:
+
+- [https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-replication.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-replication.html)
+- [https://www.elastic.co/blog/found-elasticsearch-top-down](https://www.elastic.co/blog/found-elasticsearch-top-down)
+- [https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up](https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up)
+- [https://blog.insightdatascience.com/anatomy-of-an-elasticsearch-cluster-part-ii-6db4e821b571](https://blog.insightdatascience.com/anatomy-of-an-elasticsearch-cluster-part-ii-6db4e821b571)
+- [https://medium.com/geekculture/elasticsearch-internals-4c4c9ec077fa](https://medium.com/geekculture/elasticsearch-internals-4c4c9ec077fa)
+- [https://joshua-robinson.medium.com/thawing-the-elasticsearch-frozen-tier-31a19959dfc4](https://joshua-robinson.medium.com/thawing-the-elasticsearch-frozen-tier-31a19959dfc4)
+
+
 ## Some useful APIs
+
+[http://elasticsearch-cheatsheet.jolicode.com](http://elasticsearch-cheatsheet.jolicode.com)
 
 1. Index statistics. The API is only intended for human use
 
