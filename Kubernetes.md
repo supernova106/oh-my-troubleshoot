@@ -153,4 +153,7 @@ cache [TTL] [ZONES...] {
 - denial, override the settings for caching denial of existence responses. CAPACITY indicates the maximum number of packets we cache before we start evicting (LRU). TTL overrides the cache maximum TTL. MINTTL overrides the cache minimum TTL (default 5), which can be useful to limit queries to the backend. There is a third category (error) but those responses are never cached.
 - prefetch will prefetch popular items when they are about to be expunged from the cache. Popular means AMOUNT queries have been seen with no gaps of DURATION or more between them. DURATION defaults to 1m. Prefetching will happen when the TTL drops below PERCENTAGE, which defaults to 10%, or latest 1 second before TTL expiration. Values should be in the range [10%, 90%]. Note the percent sign is mandatory. PERCENTAGE is treated as an int.
 
+## KSPM
 
+- [https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/](https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/)
+- [https://medium.com/@dmosyan/the-4cs-of-cloud-native-kubernetes-security-958c720e2391](https://medium.com/@dmosyan/the-4cs-of-cloud-native-kubernetes-security-958c720e2391)
