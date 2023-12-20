@@ -157,17 +157,16 @@ def main(es_client, src_indices):
         # Wait for all the threads to finish before proceeding
         process.join()
 
-load_dotenv('.env')
-kibana_url = os.environ['ES_URL']
-es_password = os.environ['ES_PASSWORD']
-es_user = os.environ['ES_USER']
-es = Elasticsearch(hosts=kibana_url)
-es_client = es.options(basic_auth=(es_user, es_password))
-es_client.info()
-
-src_indices = [
-    ".ds-logs-example-test1-2021.12.19-000024"
-]
-
 if __name__ == "__main__":
+    load_dotenv('.env')
+    kibana_url = os.environ['ES_URL']
+    es_password = os.environ['ES_PASSWORD']
+    es_user = os.environ['ES_USER']
+    es = Elasticsearch(hosts=kibana_url)
+    es_client = es.options(basic_auth=(es_user, es_password))
+    es_client.info()
+    
+    src_indices = [
+        ".ds-logs-example-test1-2021.12.19-000024"
+    ]
     main(es_client, src_indices)
