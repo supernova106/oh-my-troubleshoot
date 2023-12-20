@@ -46,13 +46,13 @@ def restore_index(index_name, snapshot_name, repository_name):
 if __name__ == '__main__':
 
     load_dotenv('.env')
-    kibana_url = os.environ['ES_URL']
+    es_url = os.environ['ES_URL']
     es_password = os.environ['ES_PASSWORD']
     es_user = os.environ['ES_USER']
     snapshot_name = os.environ['SNAPSHOT_NAME']
     repository_name = os.environ['REPOSITORY_NAME']
 
-    es = Elasticsearch(hosts=kibana_url)
+    es = Elasticsearch(hosts=es_url)
     es_client = es.options(basic_auth=(es_user, es_password))
     es_client.info()
 
