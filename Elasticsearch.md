@@ -1,5 +1,7 @@
 # Elasticsearch
 
+## Some useful APIs
+
 1. Index statistics. The API is only intended for human use
 
 ```sh
