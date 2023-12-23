@@ -9,6 +9,17 @@ Reads:
 - [https://medium.com/geekculture/elasticsearch-internals-4c4c9ec077fa](https://medium.com/geekculture/elasticsearch-internals-4c4c9ec077fa)
 - [https://joshua-robinson.medium.com/thawing-the-elasticsearch-frozen-tier-31a19959dfc4](https://joshua-robinson.medium.com/thawing-the-elasticsearch-frozen-tier-31a19959dfc4)
 
+## Basic Knowledge
+
+Dedicated master nodes:
+
+- Track all nodes in the cluster.
+- Track the number of indexes in the cluster.
+- Track the number of shards belonging to each index.
+- Maintain routing information for nodes in the cluster.
+- Update the cluster state after state changes, such as creating an index and adding or removing nodes in the cluster.
+- Replicate changes to the cluster state across all nodes in the cluster.
+- Monitor the health of all cluster nodes by sending heartbeat signals, periodic signals that monitor the availability of the data nodes in the cluster.
 
 ## Some useful APIs
 
