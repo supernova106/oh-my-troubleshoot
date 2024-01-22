@@ -6,7 +6,12 @@ Quick troubleshooting
 # The three numbers are exponentially damped moving sum averages with a 1 minute, 5 minute, and 15 minute constant
 uptime
 
+# The dmesg command displays messages from the kernel. You can check for kernel-related errors or warnings by running
 dmesg | tail
+
+# On Linux systems that use syslog, you can check the system log for messages related to the crash
+tail -f /var/log/syslog
+
 vmstat 1
 
 # This command prints CPU time breakdowns per CPU, which can be used to check for an imbalance. 
